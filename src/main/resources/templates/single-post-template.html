@@ -26,6 +26,7 @@
                                                                        th:text="${post.topic.name}">Topic</a>
             </h3>
             <h2 class="post__title main-content__topic-title" th:text="${post.title}">Post Title</h2>
+            <h3 class="post__title main-content__topic-title" th:text="'by:  '+ ${post.author}">Post Author</h3>
             <p class="post__content" th:text="${post.content}">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Doloremque blanditiis, aut quae fuga id quis ut.
                 Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam
@@ -33,6 +34,15 @@
             </p>
         </section>
     </main>
+    <br>
+    <hr>
+    <br>
+    <form action="/hashtags/add" method="POST">
+        <label for="name">New Hashtag:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <input type="hidden" id="id" name="id" th:value="${post.id}">
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 </body>

@@ -2,9 +2,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title th:text="${topic.name}">Document</title>
+    <title th:text="${hashtag.name}">Hashtag</title>
 
     <link href="/css/style.css" rel="stylesheet"/>
     <link href="/css/layout.css" rel="stylesheet"/>
@@ -20,39 +20,18 @@
         </nav>
     </header>
     <main class="main-content">
-        <section class="main-content__topic topic">
-            <h2 class="topic__title main-content__title" th:text="${topic.name}">
-                Topic
+        <section class="main-content__hashtag hashtag">
+            <h2 class="hashtag__title main-content__title" th:text="${hashtag.name}">
+                Hashtag
             </h2>
             <nav class="main-content__nav posts__nav">
-                <div th:each="post: ${topic.posts}">
+                <div th:each="post: ${hashtag.posts}">
                     <a class="posts__nav-link" href="#" th:href="'/posts/'+${post.id}"
                        th:text="${post.title}"></a>
                 </div>
             </nav>
         </section>
     </main>
-    <br>
-    <hr>
-    <br>
-    <h2>Add your own post to this topic!</h2>
-    <br>
-    <form action="/posts/add" method="POST">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-        <br>
-        <label for="content">Body:</label>
-        <br>
-        <textarea rows="5" cols="60" name ="content" id="content">
-        </textarea><br>
-        <br>
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author"><br>
-        <input type="hidden" id="topicid" name="topicid" th:value="${topic.id}">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
 </div>
 </body>
-
 </html>
